@@ -88,7 +88,7 @@ const About = () => {
               <CardContent>
                 <div className="space-y-4">
                   <Badge variant="outline" className="border-cyan-blue/30 text-cyan-blue">
-                    CGPA: 8.325 at NIT Srinagar
+                    CGPA: 8.35 at NIT Srinagar
                   </Badge>
                   <Badge variant="outline" className="border-slate-gray/30 text-slate-gray">
                     Strong CS fundamentals
