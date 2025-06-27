@@ -1,5 +1,5 @@
 
-import { ArrowDown, Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, FileDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ContactCard from '@/components/ContactCard';
 
@@ -45,18 +45,34 @@ const Hero = () => {
               </a>
             </Button>
           </div>
+          {/* Action Buttons */}
+<div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+  {/* Download Resume Button */}
+  <Button
+    variant="outline"
+    size="lg"
+    className="border-slate-gray/30 text-slate-gray hover:text-cyan-blue hover:border-cyan-blue/50"
+    asChild
+  >
+    <a href="/deepak_resume.pdf" download className="inline-flex items-center gap-2">
+      <FileDown size={20} />
+      Download Resume
+    </a>
+  </Button>
 
-          {/* CTA Button */}
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-cyan-blue to-electric-blue text-rich-black px-8 py-3 rounded-lg font-semibold hover:from-electric-blue hover:to-cyan-blue transition-all duration-300"
-            asChild
-          >
-            <a href="#about" className="inline-flex items-center gap-2">
-              Explore My Work
-              <ArrowDown size={20} />
-            </a>
-          </Button>
+  {/* CTA Button */}
+  <Button
+    size="lg"
+    className="bg-gradient-to-r from-cyan-blue to-electric-blue text-rich-black px-8 py-3 rounded-lg font-semibold hover:from-electric-blue hover:to-cyan-blue transition-all duration-300"
+    asChild
+  >
+    <a href="#experience" className="inline-flex items-center gap-2">
+      Explore My Work
+      <ArrowDown size={20} />
+    </a>
+  </Button>
+</div>
+
         </div>
       </div>
     </section>

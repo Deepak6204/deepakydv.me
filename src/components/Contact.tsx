@@ -119,9 +119,6 @@ const Contact = () => {
           
           {/* Academic Info */}
           <div className="text-center bg-rich-black rounded-lg p-6 border border-slate-gray/20">
-            <p className="text-slate-gray">
-              <span className="text-cyan-blue font-semibold">Roll Number:</span> 2022BCSE035
-            </p>
             <p className="text-slate-gray mt-2">
               National Institute of Technology, Srinagar • Computer Science & Engineering
             </p>

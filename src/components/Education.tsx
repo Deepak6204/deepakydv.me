@@ -9,7 +9,6 @@ const Education = () => {
       institution: "National Institute of Technology, Srinagar",
       year: "2022 - Present",
       grade: "CGPA: 8.35",
-      rollNumber: "2022BCSE035"
     },
     {
       degree: "Class XII",
@@ -64,9 +63,6 @@ const Education = () => {
                     
                     <div className="flex items-center justify-between">
                       <p className="text-cyan-blue font-semibold">{edu.grade}</p>
-                      {edu.rollNumber && (
-                        <p className="text-slate-gray text-sm">Roll No: {edu.rollNumber}</p>
-                      )}
                     </div>
                   </div>
                 </div>
