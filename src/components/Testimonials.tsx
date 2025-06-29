@@ -2,29 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Quote } from 'lucide-react';
 
-const testimonials = [
-  {
-    name: 'Aarav Mehta',
-    role: 'Product Manager, InnoTech',
-    image: 'https://randomuser.me/api/portraits/men/32.jpg',
-    feedback:
-      'Working with Deepak was a game-changer. His ability to turn complex ideas into smooth, scalable solutions is unmatched.',
-  },
-  {
-    name: 'Ritika Singh',
-    role: 'Frontend Engineer, ByteWorks',
-    image: 'https://randomuser.me/api/portraits/women/44.jpg',
-    feedback:
-      'What impressed me the most was the attention to detail and clean code. A true craftsman of modern web development.',
-  },
-  {
-    name: 'Rahul Sharma',
-    role: 'CTO, OpenCloud AI',
-    image: 'https://randomuser.me/api/portraits/men/85.jpg',
-    feedback:
-      'Deepak doesn’t just deliver code — he delivers thoughtful, user-centered experiences that exceed expectations.',
-  },
-];
+const testimonials = [];
 
 const Testimonials = () => {
   return (
