@@ -12,7 +12,7 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Academic Email",
-      value: "deeepak_2022bcse035@nitsri.ac.in",
+      value: "deepak_2022bcse035@nitsri.ac.in",
       href: "mailto:deeepak_2022bcse035@nitsri.ac.in"
     },
     {
