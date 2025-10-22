@@ -4,18 +4,6 @@ import { Briefcase, Calendar, MapPin } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: "Backend Developer",
-      company: "TeacherTech",
-      location: "Remote",
-      period: "Feb 2025 – Present",
-      description: [
-        "Scalable Platform Development: Building backend architecture for managing classes, tests, and results for institutes.",
-        "RESTful APIs: Created APIs using Node.js and Express for test creation, scheduling, and result tracking.",
-        "MySQL Data Modeling: Designed and optimized schemas for efficient data access and storage."
-      ],
-      technologies: ["Node.js", "Express.js", "MySQL", "REST API"]
-    },
-    {
       title: "AI Engineer Intern",
       company: "SynecxAiLabs",
       location: "Remote",
@@ -28,7 +16,20 @@ const Experience = () => {
         "SQLite Storage: Used SQLite for lightweight storage and quick access to structured medical data."
       ],
       technologies: ["Flask", "Python", "AI/ML", "Tailwind CSS", "SQLite", "Hugging Face"]
+    },
+    {
+      title: "Research Intern",
+      company: "National Institute of Technology (NIT) Patna",
+      location: "On-site",
+      period: "Dec 2023 – Feb 2024",
+      description: [
+        "Deep Learning Research: Worked on skin cancer image classification using deep learning for early cancer detection.",
+        "Model Implementation: Implemented the P2P-Net model with a ResNet50 backbone and FPN to capture global and local image features.",
+        "Performance Optimization: Achieved 94.76% accuracy on a benchmark skin cancer dataset (HAM10000)."
+      ],
+      technologies: ["Python", "PyTorch", "CNN", "ResNet50", "FPN"]
     }
+
   ];
 
   return (

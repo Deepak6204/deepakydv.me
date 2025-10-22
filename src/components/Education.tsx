@@ -8,14 +8,14 @@ const Education = () => {
       field: "Computer Science and Engineering",
       institution: "National Institute of Technology, Srinagar",
       year: "2022 - Present",
-      grade: "CGPA: 8.35",
+      grade: "CGPA: 8.42",
     },
     {
       degree: "Class XII",
       field: "Science",
       institution: "Kendriya Vidyalaya, Bantalab, Jammu",
       year: "2020 - 2021",
-      grade: "89.4%"
+      grade: "85.4%"
     },
     {
       degree: "Class X",

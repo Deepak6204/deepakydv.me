@@ -4,7 +4,7 @@ import { GraduationCap, Trophy, Star } from 'lucide-react';
 
 const About = () => {
   const achievements = [
-    { icon: GraduationCap, title: "CGPA: 8.35", subtitle: "at NIT Srinagar" },
+    { icon: GraduationCap, title: "CGPA: 8.42", subtitle: "at NIT Srinagar" },
     {
       icon: Trophy,
       title: "LeetCode: 1700+",
@@ -13,9 +13,9 @@ const About = () => {
     },
     {
       icon: Star,
-      title: "CodeChef: 1600+",
+      title: "Codeforces: 1300+",
       subtitle: "Rating",
-      link: "https://www.codechef.com/users/deepak5327",
+      link: "https://codeforces.com/profile/deepak0611",
     },
   ];
 
