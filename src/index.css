@@ -71,12 +71,13 @@
 
 @layer components {
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-transparent bg-gradient-to-r from-cyan-blue via-light-gray to-cyan-blue bg-clip-text mb-16 relative text-center;
+    @apply text-4xl md:text-5xl font-bold text-transparent bg-gradient-to-r from-cyan-blue via-light-gray to-cyan-blue bg-clip-text mb-4 relative text-center;
   }
   
   .section-title::after {
     content: '';
-    @apply absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-cyan-blue to-electric-blue rounded-full;
+    @apply absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1.5 bg-gradient-to-r from-cyan-blue via-electric-blue to-cyan-blue rounded-full;
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.5);
   }
   
   .glass-card {
@@ -124,6 +125,50 @@
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out;
   }
+
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Reveal on scroll animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card shimmer effect */
+  .card-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-shimmer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(88, 166, 255, 0.05),
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+  }
 }
 
 @layer utilities {
@@ -168,10 +213,51 @@
     }
   }
 
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
   /* Smooth scrolling enhancement */
   @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-behavior: smooth;
+    }
+  }
+
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 }

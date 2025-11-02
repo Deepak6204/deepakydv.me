@@ -15,20 +15,26 @@ const About = () => {
   } = aboutConfig;
 
   return (
-    <section id={sectionId} className={`py-20 ${theme.sectionBg}`}>
-      <div className="container mx-auto px-4">
+    <section id={sectionId} className={`py-24 ${theme.sectionBg} relative`}>
+      {/* Premium background effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-blue/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-electric-blue/10 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <h2 className="section-title text-center">{sectionTitle}</h2>
 
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Main content */}
             <div className="lg:col-span-2">
-              <Card className={`${theme.cardBg} ${theme.border} mb-8`}>
+              <Card className={`${theme.cardBg} ${theme.border} mb-8 card-hover`}>
                 <CardContent className="p-8">
                   {copy.aboutParagraphs.map((p, i) => (
                     <p
                       key={i}
-                      className={`text-lg ${theme.textBody} leading-relaxed ${i === 0 ? 'mb-6' : ''}`}
+                      className={`text-lg ${theme.textBody} leading-relaxed ${i === 0 ? 'mb-6 text-xl' : ''}`}
                     >
                       {p}
                     </p>
@@ -37,29 +43,32 @@ const About = () => {
               </Card>
             </div>
 
-            {/* Achievement cards */}
+            {/* Achievement cards - Enhanced for HR visibility */}
             <div className="space-y-6">
               {achievements.map((achievement, index) => (
-                <Card key={index} className={`${theme.cardBg} ${theme.border}`}>
+                <Card 
+                  key={index} 
+                  className={`${theme.cardBg} ${theme.border} card-hover group transition-all duration-300`}
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 ${theme.iconBg} rounded-lg flex items-center justify-center`}>
-                        <achievement.icon className={theme.accentCyan} size={20} />
+                      <div className={`w-14 h-14 ${theme.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <achievement.icon className={theme.accentCyan} size={24} />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         {achievement.href ? (
                           <a
                             href={achievement.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`${theme.accentCyan} font-bold hover:underline`}
+                            className={`${theme.accentCyan} font-bold text-lg hover:underline block`}
                           >
                             {achievement.title}
                           </a>
                         ) : (
-                          <p className={`${theme.accentCyan} font-bold`}>{achievement.title}</p>
+                          <p className={`${theme.accentCyan} font-bold text-lg`}>{achievement.title}</p>
                         )}
-                        <p className={`${theme.textSecondary} text-sm`}>{achievement.subtitle}</p>
+                        <p className={`${theme.textSecondary} text-sm mt-1`}>{achievement.subtitle}</p>
                       </div>
                     </div>
                   </CardContent>
