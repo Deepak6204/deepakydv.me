@@ -1,76 +1,59 @@
-
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
+  const isProductsPage = location.pathname === '/products';
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      if (isProductsPage) return;
+
+      const sections = ['projects', 'experience', 'skills'];
+      let current = '';
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element && window.scrollY >= (element.offsetTop - 200)) {
+          current = section;
+        }
+      }
+      setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Run once on mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isProductsPage]);
 
-  const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#education', label: 'Education' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#contact', label: 'Contact' },
-  ];
+  const getLinkClass = (section: string) => {
+    return activeSection === section 
+      ? "text-[#c0c1ff] border-b-2 border-[#8083ff] pb-1 transition-colors"
+      : "text-[#c7c4d7] hover:text-[#dae2fd] transition-colors pb-[6px]";
+  };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-rich-black/95 backdrop-blur-sm border-b border-slate-gray/20' : 'bg-transparent'
-    }`}>
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          <a href="#home" className="text-xl font-bold text-cyan-blue">
-            Deepak Yadav
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-light-gray hover:text-cyan-blue transition-colors duration-200 font-medium"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-light-gray hover:text-cyan-blue transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-slate-gray/20">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="block py-2 text-light-gray hover:text-cyan-blue transition-colors duration-200 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0b1326]/70 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.25)]' : 'bg-transparent'}`}>
+      <nav className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+        <Link to="/" className="text-xl font-bold tracking-tighter bg-gradient-to-br from-[#c0c1ff] to-[#8083ff] bg-clip-text text-transparent">
+          Deepak Yadav
+        </Link>
+        {!isProductsPage && (
+          <>
+            <div className="hidden md:flex items-center gap-8 font-headline tracking-tight text-sm font-medium">
+              <a className={getLinkClass('projects')} href="/#projects">Projects</a>
+              <a className={getLinkClass('experience')} href="/#experience">Experience</a>
+              <a className={getLinkClass('skills')} href="/#skills">Skills</a>
+              <a className="text-[#c7c4d7] hover:text-[#dae2fd] transition-colors pb-[6px]" href="/products">Products</a>
+            </div>
+            <a href="/#contact" className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-full font-medium text-sm transition-all duration-300 hover:opacity-90 active:scale-90 inline-block">
+              Get in Touch
+            </a>
+          </>
         )}
       </nav>
     </header>

@@ -1,127 +1,78 @@
+import React from 'react';
 
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+export const experiences = [
+  {
+    title: 'Software Developer Intern',
+    company: 'Kickdrum Technologies',
+    location: 'Hybrid',
+    period: 'Jan 2026 - Present',
+    description:
+      'Working on full-stack development, contributing to the development of robust software solutions and exploring innovative technologies.',
+    active: true,
+  },
+  {
+    title: 'AI Engineer Intern',
+    company: 'SynecxAiLabs',
+    location: 'Remote',
+    period: 'Dec 2024 - Feb 2025',
+    description:
+      'Built a full-stack app to extract patient data from scanned prescriptions using vision-language models (SmolVLM-Instruct). Implemented Flask API and designed a responsive UI with Tailwind CSS.',
+    active: false,
+  },
+  {
+    title: 'Research Intern',
+    company: 'NIT Patna',
+    location: 'On-site',
+    period: 'Dec 2023 - Feb 2024',
+    description:
+      'Worked on skin cancer image classification. Implemented the P2P-Net model with a ResNet50 backbone, achieving 94.76% accuracy on the HAM10000 dataset.',
+    active: false,
+  },
+];
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "AI Engineer Intern",
-      company: "SynecxAiLabs",
-      location: "Remote",
-      period: "Dec 2024 – Feb 2025",
-      description: [
-        "Medical Form Digitization: Built a full-stack app to extract patient data from scanned prescriptions using vision-language models.",
-        "Flask API Development: Implemented endpoints for image upload, VLM inference, and JSON output.",
-        "SmolVLM Integration: Used SmolVLM-Instruct (Hugging Face) to convert prescription images into structured data.",
-        "Frontend Interface: Designed a responsive UI with HTML, Tailwind CSS, and JavaScript for upload and data verification.",
-        "SQLite Storage: Used SQLite for lightweight storage and quick access to structured medical data."
-      ],
-      technologies: ["Flask", "Python", "AI/ML", "Tailwind CSS", "SQLite", "Hugging Face"]
-    },
-    {
-      title: "Research Intern",
-      company: "National Institute of Technology (NIT) Patna",
-      location: "On-site",
-      period: "Dec 2023 – Feb 2024",
-      description: [
-        "Deep Learning Research: Worked on skin cancer image classification using deep learning for early cancer detection.",
-        "Model Implementation: Implemented the P2P-Net model with a ResNet50 backbone and FPN to capture global and local image features.",
-        "Performance Optimization: Achieved 94.76% accuracy on a benchmark skin cancer dataset (HAM10000)."
-      ],
-      technologies: ["Python", "PyTorch", "CNN", "ResNet50", "FPN"]
-    }
-
-  ];
-
   return (
-    <section id="experience" className="py-24 bg-gradient-to-b from-slate-gray/5 via-transparent to-slate-gray/5 relative">
-      {/* Premium decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-10 w-72 h-72 bg-cyan-blue/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
-        <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-electric-blue/5 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s' }} />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="section-title">Professional Experience</h2>
-        </div>
-        
-        <div className="max-w-5xl mx-auto">
-          {/* Work Experience */}
-          <div className="mb-12">
-            <div className="space-y-8">
-              {experiences.map((exp, index) => (
-                <div
-                  key={index}
-                  className="bg-rich-black border border-slate-gray/20 rounded-2xl p-8 card-hover group relative overflow-hidden"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {/* Shimmer effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-blue/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                  
-                  <div className="relative z-10">
-                    {/* Header */}
-                    <div className="flex items-start gap-6 mb-6">
-                      <div className="w-16 h-16 bg-gradient-to-br from-cyan-blue/20 to-electric-blue/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-cyan-blue/30 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <Briefcase className="text-cyan-blue" size={28} />
-                      </div>
-                      
-                      <div className="flex-1">
-                        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 mb-3">
-                          <h4 className="text-2xl font-bold text-transparent bg-gradient-to-r from-cyan-blue to-electric-blue bg-clip-text">
-                            {exp.title}
-                          </h4>
-                          <div className="flex items-center gap-2 text-slate-gray bg-slate-gray/10 px-4 py-2 rounded-full w-fit">
-                            <Calendar size={16} className="text-cyan-blue" />
-                            <span className="font-medium">{exp.period}</span>
-                          </div>
-                        </div>
-                        
-                        <div className="flex flex-wrap items-center gap-4 mb-2">
-                          <p className="text-light-gray font-semibold text-lg">{exp.company}</p>
-                          <div className="flex items-center gap-2 text-slate-gray">
-                            <MapPin size={16} className="text-electric-blue" />
-                            <span>{exp.location}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Key Contributions */}
-                    <div className="mb-6">
-                      <h5 className="text-light-gray font-semibold mb-4 flex items-center gap-2">
-                        <span className="w-1 h-5 bg-gradient-to-b from-cyan-blue to-electric-blue rounded-full" />
-                        Key Contributions
-                      </h5>
-                      <ul className="space-y-3 ml-3">
-                        {exp.description.map((item, i) => (
-                          <li key={i} className="text-slate-gray leading-relaxed flex items-start gap-3 group/item">
-                            <span className="text-cyan-blue mt-1 text-lg">→</span>
-                            <span className="flex-1 group-hover/item:text-light-gray transition-colors">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    {/* Technologies */}
-                    <div className="border-t border-slate-gray/20 pt-5">
-                      <h5 className="text-light-gray font-semibold mb-3 text-sm">Technologies Used</h5>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, i) => (
-                          <span 
-                            key={i} 
-                            className="px-4 py-2 bg-gradient-to-br from-cyan-blue/10 to-electric-blue/5 text-cyan-blue rounded-lg text-sm font-medium border border-cyan-blue/20 hover:border-cyan-blue/50 hover:bg-cyan-blue/20 transition-all duration-300 hover:scale-105 cursor-default shadow-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+    <section className="py-24 px-8 bg-surface" id="experience">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="font-headline text-4xl font-bold tracking-tight text-on-surface mb-16 text-center">
+          Engineering Journey
+        </h2>
+        <div className="space-y-12">
+          {experiences.map((exp, index) => (
+            <div key={index} className="relative pl-8 md:pl-0">
+              <div className="md:grid md:grid-cols-12 md:gap-8 items-start">
+                <div className="md:col-span-3 md:text-right">
+                  <span
+                    className={`${exp.active ? 'text-primary' : 'text-on-surface-variant/80'} font-bold font-headline text-lg tracking-tighter`}
+                  >
+                    {exp.period}
+                  </span>
+                  <div className="text-xs text-on-surface-variant/60 mt-1 uppercase tracking-widest">
+                    {exp.location}
                   </div>
                 </div>
-              ))}
+                <div className="hidden md:flex md:col-span-1 justify-center relative h-full">
+                  <div
+                    className={`w-4 h-4 rounded-full ${exp.active ? 'bg-primary' : 'bg-surface-container-highest'} border-4 border-surface z-10`}
+                  ></div>
+                  {index !== experiences.length - 1 && (
+                    <div className="absolute top-4 w-px h-[calc(100%+3rem)] bg-outline-variant/20"></div>
+                  )}
+                </div>
+                <div className="md:col-span-8 bg-surface-container-low p-8 rounded-2xl">
+                  <h3 className="text-xl font-bold text-on-surface">
+                    {exp.title}
+                  </h3>
+                  <div className="text-secondary text-sm font-medium mb-4">
+                    {exp.company}
+                  </div>
+                  <p className="text-on-surface-variant text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>
