@@ -10,7 +10,7 @@ const products = [
     image:
       'https://images.unsplash.com/photo-1517842645767-c639042777db?w=600&h=400&fit=crop',
     technologies: ['Electron', 'React', 'Node.js', 'Desktop App', 'Windows'],
-    link: 'https://drive.google.com/file/d/1zDayUEGFRDFEh1vCMi-7Ev6DX7dMHXf9/view?usp=sharing',
+    link: 'https://drive.google.com/file/d/1rpXBtPxytl8WSY8QgZ5birgbjBR-0faY/view?usp=sharing',
     metric: 'Instant',
     metricLabel: 'Capture',
   },
