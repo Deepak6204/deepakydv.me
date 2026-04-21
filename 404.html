@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var locationData = window.location;
+        var target = locationData.protocol + "//" + locationData.host + "/?p=" + encodeURIComponent(locationData.pathname);
+
+        if (locationData.search && locationData.search.length > 1) {
+          target += "&q=" + encodeURIComponent(locationData.search.slice(1));
+        }
+
+        if (locationData.hash) {
+          target += locationData.hash;
+        }
+
+        locationData.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

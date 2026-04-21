@@ -48,6 +48,18 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var encodedPath = params.get("p");
+        if (!encodedPath) return;
+
+        var path = decodeURIComponent(encodedPath);
+        var encodedQuery = params.get("q");
+        var query = encodedQuery ? "?" + decodeURIComponent(encodedQuery) : "";
+        window.history.replaceState(null, "", path + query + window.location.hash);
+      })();
+    </script>
     <script type="module" crossorigin src="/assets/index-DuA_z4l0.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CVed1OUQ.css">
   </head>
